@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+        "target": "ES2020",
+        "useDefineForClassFields": true,
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "module": "ESNext",
+        "skipLibCheck": true,
+
+        /* Bundler mode */
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "isolatedModules": false,
+        "moduleDetection": "force",
+        "noEmit": true,
+        "jsx": "react-jsx",
+
+        /* Linting */
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUncheckedSideEffectImports": true,
+
+        "paths": {
+            "@app/*": ["./src/1.App/*"],
+            "@pages/*": ["./src/2.Pages/*"],
+            "@widgets/*": ["./src/3.Widgets/*"],
+            "@entities/*": ["./src/4.Entities/*"],
+            "@shared/*": ["./src/5.Shared/*"]
+        }
+    },
+    "include": ["src"]
+}
