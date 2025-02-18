@@ -1,4 +1,24 @@
 @import "tailwindcss";
 
 * {
+    --bg-color-light: #303532;
+    --bg-color-dark: #1b1e1c;
+    --ours-message-color: #3e7042;
+    --text-color: #f0f5f0;
+}
+
+body,
+html,
+#root {
+    width: 100%;
+    height: 100%;
+    color: var(--text-color);
+}
+
+.bg-dark {
+    background-color: var(--bg-color-dark);
+}
+
+.bg-light {
+    background-color: var(--bg-color-light);
 }
