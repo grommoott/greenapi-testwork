@@ -10,7 +10,7 @@ export type Store = {
     chats: Chat[]
     addChat: (chat: Chat) => void
     addMessage: (message: Message) => void
-    removeMessage: (messageId: string) => void
+    setMessageId: (tmpId: string, realId: string) => void
 
     unreadMessages: Message[]
     addUnreadMessage: (message: Message) => void

@@ -9,11 +9,11 @@ interface Props {
 const MessageEntity: FC<Props> = ({ message }) => {
     return (
         <div
-            className="m-2 p-2 rounded-2xl bg-light h-min drop-shadow-sm max-w-[60%]"
+            className="m-2 p-2 rounded-2xl bg-bg-light h-min drop-shadow-sm max-w-[60%]"
             style={(() => {
                 if (isOursMessage(message)) {
                     return {
-                        backgroundColor: "var(--ours-message-color",
+                        backgroundColor: "var(--color-main)",
                         borderTopRightRadius: "0.5rem",
                         alignSelf: "end",
                     }
