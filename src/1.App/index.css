@@ -2,21 +2,34 @@
 
 @theme {
     --color-bg-light: #303532;
+    --color-bg-light-dark: #2a2d2b;
     --color-bg-light-hovered: #383d3a;
     --color-bg-light-active: #383d30;
     --color-bg-dark: #1b1e1c;
-    --color-separator: #464c4a;
+    --color-separator: #303533;
     --color-main: #3e7042;
-    --text-color: #f0f5f0;
+    --color-text: #f0f5f0;
     --color-light-text: #90a590;
+    --color-error: #a33c3c;
+    --color-warning: #b2ae39;
 }
 
 * {
-    --bg-color-light: #303532;
-    --bg-color-light-hovered: #383d3a;
-    --bg-color-dark: #1b1e1c;
-    --ours-message-color: #3e7042;
-    --text-color: #f0f5f0;
+    --toastify-color-dark: var(--color-bg-light-dark);
+    --toastify-toast-bd-radius: var(--radius-2xl);
+    --toastify-text-color-dark: var(--color-text);
+
+    --toastify-icon-color-error: var(--color-error);
+    --toastify-color-progress-error: var(--color-error);
+
+    --toastify-icon-color-warning: var(--color-warning);
+    --toastify-color-progress-warning: var(--color-warning);
+}
+
+.Toastify__toast {
+    gap: 1rem;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
 }
 
 body,
@@ -24,17 +37,20 @@ html,
 #root {
     width: 100%;
     height: 100%;
-    color: var(--text-color);
+    color: var(--color-text);
 }
 
-/*.bg-dark {*/
-/*    background-color: var(--bg-color-dark);*/
-/*}*/
-/**/
-/*.bg-light {*/
-/*    background-color: var(--bg-color-light);*/
-/*}*/
-/**/
-/*.bg-light-hovered {*/
-/*    background-color: var(--bg-color-light-hovered);*/
-/*}*/
+.loading-circle {
+    animation: loading-circle-animation 1s linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes loading-circle-animation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

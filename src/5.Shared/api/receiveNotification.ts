@@ -33,7 +33,7 @@ const receiveNotification = async (
 
     return {
         receiptId: data.receiptId,
-        timestamp: data.timestamp,
+        timestamp: data.body.timestamp,
         senderData: {
             chatId: data.body.senderData.chatId,
             sender: data.body.senderData.sender,

@@ -25,7 +25,7 @@ const ChatEntity: FC<Props> = ({
             <div className="m-2">
                 <img
                     src={chat.avatarUrl}
-                    className="size-16 rounded-full object-cover select-none"
+                    className="size-16 rounded-full object-cover select-none drop-shadow-md"
                     draggable={false}
                 />
             </div>

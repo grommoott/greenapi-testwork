@@ -14,13 +14,8 @@ const ChatList: FC<Props> = ({ onSelect = () => {} }) => {
     return (
         <div className="flex flex-col h-[100vh]">
             <ChatInput
-                onAddChat={(id) => {
-                    addChat({
-                        chatId: id,
-                        avatarUrl: "",
-                        messages: [],
-                        name: "test",
-                    })
+                onAddChat={(chat) => {
+                    addChat(chat)
                 }}
             />
 
@@ -29,8 +24,8 @@ const ChatList: FC<Props> = ({ onSelect = () => {} }) => {
                     <div className="flex flex-col items-center">
                         <p className="text-light-text text-center break-words max-w-80">
                             У вас пока что нет чатов, чтобы добавить их введите
-                            номер того, кому хотите написать и нажмите кнопку
-                            создания чата
+                            номер того, кому хотите написать, без пробелов, и
+                            нажмите кнопку создания чата
                         </p>
                     </div>
                 )}{" "}

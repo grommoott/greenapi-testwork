@@ -3,7 +3,7 @@ import ChatWidget from "@widgets/ChatWidget"
 import ChatList from "@widgets/ChatList"
 import { FC, useEffect, useState } from "react"
 import { useNavigate } from "react-router"
-import { Chat } from "@shared/types"
+import { Chat, Message } from "@shared/types"
 import config from "@shared/config"
 import receiveNotification from "@shared/api/receiveNotification"
 import deleteNotification from "@shared/api/deleteNotification"
@@ -11,9 +11,33 @@ import deleteNotification from "@shared/api/deleteNotification"
 const Home: FC = () => {
     const navigate = useNavigate()
 
-    const { idInstance, apiTokenInstance, addMessage, addUnreadMessage } =
-        useAppStore()
+    const {
+        idInstance,
+        apiTokenInstance,
+        addMessage,
+        addUnreadMessage,
+        unreadMessages,
+        readChat,
+    } = useAppStore()
     const [selectedChat, setSelectedChat] = useState<Chat | undefined>()
+
+    useEffect(() => {
+        console.log(unreadMessages)
+        if (
+            !selectedChat ||
+            unreadMessages
+                .map((msg) =>
+                    msg.chatId == selectedChat.chatId
+                        ? (1 as number)
+                        : (0 as number),
+                )
+                .reduce((prev, cur) => prev + cur, 0) == 0
+        ) {
+            return
+        }
+
+        readChat(selectedChat?.chatId)
+    }, [selectedChat, unreadMessages])
 
     useEffect(() => {
         if (!idInstance || !apiTokenInstance) {
@@ -34,7 +58,7 @@ const Home: FC = () => {
                 return
             }
 
-            const message = {
+            const message: Message = {
                 id: response.idMessage,
                 chatId: response.senderData.chatId,
                 sender: response.senderData.sender,
@@ -57,10 +81,10 @@ const Home: FC = () => {
 
     return (
         <div className="flex flex-row items-stretch w-full h-full bg-bg-dark">
-            <div className="flex flex-col grow border-r-separator border-r-2">
+            <div className="w-2/5 flex flex-col border-r-separator border-r-1">
                 <ChatList onSelect={setSelectedChat} />
             </div>
-            <div className="flex flex-col items-stretch grow">
+            <div className="w-3/5 flex flex-col items-stretch">
                 <ChatWidget chat={selectedChat} />
             </div>
         </div>

@@ -40,11 +40,34 @@ const useAppStore = create<Store>((set) => ({
 
             return { chats }
         }),
+    removeMessage: (id) =>
+        set((state) => {
+            const chats = state.chats.slice()
+            let messageIndex = -1
+            const chatIndex = chats.findIndex((ch) => {
+                messageIndex = ch.messages.findIndex((msg) => msg.id == id)
+                return messageIndex != -1
+            })
+
+            if (chatIndex == -1 || messageIndex == -1) {
+                return {}
+            }
+
+            chats[chatIndex].messages.splice(messageIndex, 1)
+
+            return { chats }
+        }),
 
     unreadMessages: [],
     addUnreadMessage: (message) =>
         set((state) => ({
             unreadMessages: state.unreadMessages.concat(message),
+        })),
+    readChat: (chatId) =>
+        set((state) => ({
+            unreadMessages: state.unreadMessages.filter(
+                (msg) => msg.chatId != chatId,
+            ),
         })),
 }))
 

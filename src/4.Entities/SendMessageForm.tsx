@@ -23,6 +23,7 @@ const SendMessageForm: FC<Props> = ({ onMessage = () => {} }) => {
                 value={content}
                 onChange={setContent}
                 placeholder="Введите сообщение"
+                onSend={sendMessage}
             />
             <button
                 className="m-2 rounded-full bg-transparent group p-2 focus-visible:bg-bg-light-hovered duration-100 outline-none"
