@@ -27,7 +27,7 @@ const receiveNotification = async (
         `${config.backendBaseUrl}/waInstance${idInstance}/receiveNotification/${apiTokenInstance}`,
     )
 
-    if (!data) {
+    if (!data || data.body.messageData.typeMessage != "textMessage") {
         return undefined
     }
 

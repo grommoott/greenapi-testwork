@@ -22,7 +22,6 @@ const Home: FC = () => {
     const [selectedChat, setSelectedChat] = useState<Chat | undefined>()
 
     useEffect(() => {
-        console.log(unreadMessages)
         if (
             !selectedChat ||
             unreadMessages
