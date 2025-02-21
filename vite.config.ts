@@ -3,7 +3,7 @@ import path from "path"
 import react from "@vitejs/plugin-react"
 import tailwindcss from "@tailwindcss/vite"
 
-const dirname = __dirname || process.cwd()
+const dirname = process.cwd()
 
 export default defineConfig({
     plugins: [react(), tailwindcss()],
