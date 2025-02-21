@@ -101,7 +101,7 @@ const LoginForm: FC<Props> = () => {
                 type="password"
             />
             <div className="h-4" />
-            <button className="bg-main py-3 px-6 rounded-full drop-shadow-md flex flex-row items-center gap-2">
+            <button className="bg-main py-3 px-6 rounded-full drop-shadow-md flex flex-row items-center gap-2 cursor-pointer hover:bg-main-hovered active:bg-main-active outline-none focus-visible:bg-main-hovered">
                 <p>Войти</p>
                 {isLoading && <Loading className="stroke-text" />}
             </button>
