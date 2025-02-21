@@ -69,7 +69,7 @@ const ChatInput: FC<Props> = ({ onAddChat = () => {} }) => {
             />
             {isLoading && <Loading />}
             <button
-                className="m-2 rounded-full group hover:bg-bg-light-hovered active:bg-bg-light-active p-2 focus-visible:bg-bg-light-hovered duration-100 outline-none"
+                className="m-2 rounded-full group hover:bg-bg-light-hovered active:bg-bg-light-active p-2 focus-visible:bg-bg-light-hovered duration-100 outline-none cursor-pointer"
                 onClick={addChat}
                 onKeyDown={(e) => {
                     if (e.key == "Enter") {

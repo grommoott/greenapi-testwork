@@ -14,7 +14,7 @@ const ChatEntity: FC<Props> = ({
 }) => {
     return (
         <button
-            className="px-2 py-4 flex flex-row items-center h-20 bg-bg-light hover:bg-bg-light-hovered active:bg-bg-light-active focus-visible:bg-bg-light-hovered duration-100 outline-none"
+            className="px-2 py-4 flex flex-row items-center h-20 bg-bg-light hover:bg-bg-light-hovered active:bg-bg-light-active focus-visible:bg-bg-light-hovered duration-100 outline-none cursor-pointer"
             onClick={() => onSelect(chat)}
             onKeyDown={(e) => {
                 if (e.key == "Enter") {

@@ -26,7 +26,7 @@ const SendMessageForm: FC<Props> = ({ onMessage = () => {} }) => {
                 onSend={sendMessage}
             />
             <button
-                className="m-2 rounded-full bg-transparent group p-2 focus-visible:bg-bg-light-hovered duration-100 outline-none"
+                className="m-2 rounded-full bg-transparent group p-2 focus-visible:bg-bg-light-hovered duration-100 outline-none cursor-pointer"
                 onClick={sendMessage}
                 onKeyDown={(e) => {
                     if (e.key == "Enter") {
